@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Templating;
+//namespace Symfony\Component\Templating;
 
 /**
  * Internal representation of a template.
@@ -18,7 +18,7 @@ namespace Symfony\Component\Templating;
  *
  * @api
  */
-class TemplateReference implements TemplateReferenceInterface
+class Symfony_Component_Templating_TemplateReference implements Symfony_Component_Templating_TemplateReferenceInterface
 {
     protected $parameters;
 
@@ -43,7 +43,7 @@ class TemplateReference implements TemplateReferenceInterface
      *
      * @return TemplateReferenceInterface The TemplateReferenceInterface instance
      *
-     * @throws  \InvalidArgumentException if the parameter is not defined
+     * @throws  InvalidArgumentException if the parameter is not defined
      *
      * @api
      */
@@ -52,7 +52,7 @@ class TemplateReference implements TemplateReferenceInterface
         if (array_key_exists($name, $this->parameters)) {
             $this->parameters[$name] = $value;
         } else {
-            throw new \InvalidArgumentException(sprintf('The template does not support the "%s" parameter.', $name));
+            throw new InvalidArgumentException(sprintf('The template does not support the "%s" parameter.', $name));
         }
 
         return $this;
@@ -65,7 +65,7 @@ class TemplateReference implements TemplateReferenceInterface
      *
      * @return string The parameter value
      *
-     * @throws  \InvalidArgumentException if the parameter is not defined
+     * @throws  InvalidArgumentException if the parameter is not defined
      *
      * @api
      */
@@ -75,7 +75,7 @@ class TemplateReference implements TemplateReferenceInterface
             return $this->parameters[$name];
         }
 
-        throw new \InvalidArgumentException(sprintf('The template does not support the "%s" parameter.', $name));
+        throw new InvalidArgumentException(sprintf('The template does not support the "%s" parameter.', $name));
     }
 
     /**

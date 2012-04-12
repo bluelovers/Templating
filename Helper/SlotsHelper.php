@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Templating\Helper;
+//namespace Symfony\Component\Templating\Helper;
 
 /**
  * SlotsHelper manages template slots.
@@ -18,7 +18,7 @@ namespace Symfony\Component\Templating\Helper;
  *
  * @api
  */
-class SlotsHelper extends Helper
+class Symfony_Component_Templating_Helper_SlotsHelper extends Symfony_Component_Templating_Helper_Helper
 {
     protected $slots = array();
     protected $openSlots = array();
@@ -31,14 +31,14 @@ class SlotsHelper extends Helper
      *
      * @param string $name  The slot name
      *
-     * @throws \InvalidArgumentException if a slot with the same name is already started
+     * @throws InvalidArgumentException if a slot with the same name is already started
      *
      * @api
      */
     public function start($name)
     {
         if (in_array($name, $this->openSlots)) {
-            throw new \InvalidArgumentException(sprintf('A slot named "%s" is already started.', $name));
+            throw new InvalidArgumentException(sprintf('A slot named "%s" is already started.', $name));
         }
 
         $this->openSlots[] = $name;
@@ -51,14 +51,14 @@ class SlotsHelper extends Helper
     /**
      * Stops a slot.
      *
-     * @throws \LogicException if no slot has been started
+     * @throws LogicException if no slot has been started
      *
      * @api
      */
     public function stop()
     {
         if (!$this->openSlots) {
-            throw new \LogicException('No slot started.');
+            throw new LogicException('No slot started.');
         }
 
         $name = array_pop($this->openSlots);

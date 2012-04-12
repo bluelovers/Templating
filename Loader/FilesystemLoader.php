@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Templating\Loader;
+//namespace Symfony\Component\Templating\Loader;
 
-use Symfony\Component\Templating\Storage\Storage;
-use Symfony\Component\Templating\Storage\FileStorage;
-use Symfony\Component\Templating\TemplateReferenceInterface;
+//use Symfony\Component\Templating\Storage\Storage;
+//use Symfony\Component\Templating\Storage\FileStorage;
+//use Symfony\Component\Templating\TemplateReferenceInterface;
 
 /**
  * FilesystemLoader is a loader that read templates from the filesystem.
@@ -22,7 +22,7 @@ use Symfony\Component\Templating\TemplateReferenceInterface;
  *
  * @api
  */
-class FilesystemLoader extends Loader
+class Symfony_Component_Templating_Loader_FilesystemLoader extends Symfony_Component_Templating_Loader_Loader
 {
     protected $templatePathPatterns;
 
@@ -47,12 +47,12 @@ class FilesystemLoader extends Loader
      *
      * @api
      */
-    public function load(TemplateReferenceInterface $template)
+    public function load(Symfony_Component_Templating_TemplateReferenceInterface $template)
     {
         $file = $template->get('name');
 
         if (self::isAbsolutePath($file) && is_file($file)) {
-            return new FileStorage($file);
+            return new Symfony_Component_Templating_Storage_FileStorage($file);
         }
 
         $replacements = array();
@@ -67,7 +67,7 @@ class FilesystemLoader extends Loader
                     $this->debugger->log(sprintf('Loaded template file "%s"', $file));
                 }
 
-                return new FileStorage($file);
+                return new Symfony_Component_Templating_Storage_FileStorage($file);
             }
 
             if (null !== $this->debugger) {
@@ -92,7 +92,7 @@ class FilesystemLoader extends Loader
      *
      * @api
      */
-    public function isFresh(TemplateReferenceInterface $template, $time)
+    public function isFresh(Symfony_Component_Templating_TemplateReferenceInterface $template, $time)
     {
         if (false === $storage = $this->load($template)) {
             return false;

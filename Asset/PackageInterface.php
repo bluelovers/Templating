@@ -9,14 +9,14 @@
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Templating\Asset;
+//namespace Symfony\Component\Templating\Asset;
 
 /**
  * Asset package interface.
  *
  * @author Kris Wallsmith <kris@symfony.com>
  */
-interface PackageInterface
+interface Symfony_Component_Templating_Asset_PackageInterface
 {
     /**
      * Returns the asset package version.

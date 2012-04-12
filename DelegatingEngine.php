@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Templating;
+//namespace Symfony\Component\Templating;
 
 /**
  * DelegatingEngine selects an engine for a given template.
@@ -18,7 +18,7 @@ namespace Symfony\Component\Templating;
  *
  * @api
  */
-class DelegatingEngine implements EngineInterface, StreamingEngineInterface
+class Symfony_Component_Templating_DelegatingEngine implements Symfony_Component_Templating_EngineInterface, Symfony_Component_Templating_StreamingEngineInterface
 {
     protected $engines;
 
@@ -45,8 +45,8 @@ class DelegatingEngine implements EngineInterface, StreamingEngineInterface
      *
      * @return string The evaluated template as a string
      *
-     * @throws \InvalidArgumentException if the template does not exist
-     * @throws \RuntimeException         if the template cannot be rendered
+     * @throws InvalidArgumentException if the template does not exist
+     * @throws RuntimeException         if the template cannot be rendered
      *
      * @api
      */
@@ -61,15 +61,15 @@ class DelegatingEngine implements EngineInterface, StreamingEngineInterface
      * @param mixed $name       A template name or a TemplateReferenceInterface instance
      * @param array $parameters An array of parameters to pass to the template
      *
-     * @throws \RuntimeException if the template cannot be rendered
+     * @throws RuntimeException if the template cannot be rendered
      *
      * @api
      */
     public function stream($name, array $parameters = array())
     {
         $engine = $this->getEngine($name);
-        if (!$engine instanceof StreamingEngineInterface) {
-            throw new \LogicException(sprintf('Template "%s" cannot be streamed as the engine supporting it does not implement StreamingEngineInterface.', $name));
+        if (!$engine instanceof Symfony_Component_Templating_StreamingEngineInterface) {
+            throw new LogicException(sprintf('Template "%s" cannot be streamed as the engine supporting it does not implement StreamingEngineInterface.', $name));
         }
 
         $engine->stream($name, $parameters);
@@ -96,7 +96,7 @@ class DelegatingEngine implements EngineInterface, StreamingEngineInterface
      *
      * @api
      */
-    public function addEngine(EngineInterface $engine)
+    public function addEngine(Symfony_Component_Templating_EngineInterface $engine)
     {
         $this->engines[] = $engine;
     }
@@ -114,7 +114,7 @@ class DelegatingEngine implements EngineInterface, StreamingEngineInterface
     {
         try {
             $this->getEngine($name);
-        } catch (\RuntimeException $e) {
+        } catch (RuntimeException $e) {
             return false;
         }
 
@@ -128,7 +128,7 @@ class DelegatingEngine implements EngineInterface, StreamingEngineInterface
      *
      * @return EngineInterface The engine
      *
-     * @throws \RuntimeException if no engine able to work with the template is found
+     * @throws RuntimeException if no engine able to work with the template is found
      *
      * @api
      */
@@ -140,6 +140,6 @@ class DelegatingEngine implements EngineInterface, StreamingEngineInterface
             }
         }
 
-        throw new \RuntimeException(sprintf('No engine is able to work with the template "%s".', $name));
+        throw new RuntimeException(sprintf('No engine is able to work with the template "%s".', $name));
     }
 }

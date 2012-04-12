@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Templating\Loader;
+//namespace Symfony\Component\Templating\Loader;
 
-use Symfony\Component\Templating\Storage\Storage;
-use Symfony\Component\Templating\Storage\FileStorage;
-use Symfony\Component\Templating\TemplateReferenceInterface;
+//use Symfony\Component\Templating\Storage\Storage;
+//use Symfony\Component\Templating\Storage\FileStorage;
+//use Symfony\Component\Templating\TemplateReferenceInterface;
 
 /**
  * CacheLoader is a loader that caches other loaders responses
@@ -24,7 +24,7 @@ use Symfony\Component\Templating\TemplateReferenceInterface;
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
-class CacheLoader extends Loader
+class Symfony_Component_Templating_Loader_CacheLoader extends Symfony_Component_Templating_Loader_Loader
 {
     protected $loader;
     protected $dir;
@@ -35,7 +35,7 @@ class CacheLoader extends Loader
      * @param LoaderInterface $loader A Loader instance
      * @param string          $dir    The directory where to store the cache files
      */
-    public function __construct(LoaderInterface $loader, $dir)
+    public function __construct(Symfony_Component_Templating_Loader_LoaderInterface $loader, $dir)
     {
         $this->loader = $loader;
         $this->dir = $dir;
@@ -48,7 +48,7 @@ class CacheLoader extends Loader
      *
      * @return Storage|Boolean false if the template cannot be loaded, a Storage instance otherwise
      */
-    public function load(TemplateReferenceInterface $template)
+    public function load(Symfony_Component_Templating_TemplateReferenceInterface $template)
     {
         $key = md5($template->getLogicalName());
         $dir = $this->dir.DIRECTORY_SEPARATOR.substr($key, 0, 2);
@@ -60,7 +60,7 @@ class CacheLoader extends Loader
                 $this->debugger->log(sprintf('Fetching template "%s" from cache', $template->get('name')));
             }
 
-            return new FileStorage($path);
+            return new Symfony_Component_Templating_Storage_FileStorage($path);
         }
 
         if (false === $storage = $this->loader->load($template)) {
@@ -79,7 +79,7 @@ class CacheLoader extends Loader
             $this->debugger->log(sprintf('Storing template "%s" in cache', $template->get('name')));
         }
 
-        return new FileStorage($path);
+        return new Symfony_Component_Templating_Storage_FileStorage($path);
     }
 
     /**
@@ -88,7 +88,7 @@ class CacheLoader extends Loader
      * @param TemplateReferenceInterface $template A template
      * @param integer                    $time     The last modification time of the cached template (timestamp)
      */
-    public function isFresh(TemplateReferenceInterface $template, $time)
+    public function isFresh(Symfony_Component_Templating_TemplateReferenceInterface $template, $time)
     {
         return $this->loader->isFresh($template, $time);
     }

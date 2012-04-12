@@ -9,14 +9,14 @@
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Templating\Asset;
+//namespace Symfony\Component\Templating\Asset;
 
 /**
  * The path packages adds a version and a base path to asset URLs.
  *
  * @author Kris Wallsmith <kris@symfony.com>
  */
-class PathPackage extends Package
+class Symfony_Component_Templating_Asset_PathPackage extends Symfony_Component_Templating_Asset_Package
 {
     private $basePath;
 

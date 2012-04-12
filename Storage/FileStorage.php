@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Templating\Storage;
+//namespace Symfony\Component\Templating\Storage;
 
 /**
  * FileStorage represents a template stored on the filesystem.
@@ -18,7 +18,7 @@ namespace Symfony\Component\Templating\Storage;
  *
  * @api
  */
-class FileStorage extends Storage
+class Symfony_Component_Templating_Storage_FileStorage extends Symfony_Component_Templating_Storage_Storage
 {
     /**
      * Returns the content of the template.

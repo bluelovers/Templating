@@ -9,11 +9,14 @@
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Templating;
+//namespace Symfony\Component\Templating;
 
-use Symfony\Component\Templating\TemplateReferenceInterface;
-use Symfony\Component\Templating\TemplateReference;
-
+//use Symfony\Component\Templating\TemplateReferenceInterface;
+//use Symfony\Component\Templating\TemplateReference;
+if (class_exists('PHPUnit_Framework_TestCase'))
+{
+	require_once dirname(__FILE__).'/Autoloader.php';
+}
 /**
  * TemplateNameParser is the default implementation of TemplateNameParserInterface.
  *
@@ -24,7 +27,7 @@ use Symfony\Component\Templating\TemplateReference;
  *
  * @api
  */
-class TemplateNameParser implements TemplateNameParserInterface
+class Symfony_Component_Templating_TemplateNameParser implements Symfony_Component_Templating_TemplateNameParserInterface
 {
     /**
      * Parses a template to an array of parameters.
@@ -37,7 +40,7 @@ class TemplateNameParser implements TemplateNameParserInterface
      */
     public function parse($name)
     {
-        if ($name instanceof TemplateReferenceInterface) {
+        if ($name instanceof Symfony_Component_Templating_TemplateReferenceInterface) {
             return $name;
         }
 
@@ -46,6 +49,6 @@ class TemplateNameParser implements TemplateNameParserInterface
             $engine = substr($name, $pos + 1);
         }
 
-        return new TemplateReference($name, $engine);
+        return new Symfony_Component_Templating_TemplateReference($name, $engine);
     }
 }

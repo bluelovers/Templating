@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Templating;
+//namespace Symfony\Component\Templating;
 
 /**
  * Interface to be implemented by all templates.
@@ -18,7 +18,7 @@ namespace Symfony\Component\Templating;
  *
  * @api
  */
-interface TemplateReferenceInterface
+interface Symfony_Component_Templating_TemplateReferenceInterface
 {
     /**
      * Gets the template parameters.
@@ -37,7 +37,7 @@ interface TemplateReferenceInterface
      *
      * @return TemplateReferenceInterface The TemplateReferenceInterface instance
      *
-     * @throws  \InvalidArgumentException if the parameter is not defined
+     * @throws  InvalidArgumentException if the parameter is not defined
      *
      * @api
      */
@@ -50,7 +50,7 @@ interface TemplateReferenceInterface
      *
      * @return string The parameter value
      *
-     * @throws  \InvalidArgumentException if the parameter is not defined
+     * @throws  InvalidArgumentException if the parameter is not defined
      *
      * @api
      */

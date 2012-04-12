@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Templating\Loader;
+//namespace Symfony\Component\Templating\Loader;
 
-use Symfony\Component\Templating\TemplateReferenceInterface;
+//use Symfony\Component\Templating\TemplateReferenceInterface;
 
 /**
  * LoaderInterface is the interface all loaders must implement.
@@ -20,7 +20,7 @@ use Symfony\Component\Templating\TemplateReferenceInterface;
  *
  * @api
  */
-interface LoaderInterface
+interface Symfony_Component_Templating_Loader_LoaderInterface
 {
     /**
      * Loads a template.
@@ -31,7 +31,7 @@ interface LoaderInterface
      *
      * @api
      */
-    function load(TemplateReferenceInterface $template);
+    function load(Symfony_Component_Templating_TemplateReferenceInterface $template);
 
     /**
      * Returns true if the template is still fresh.
@@ -41,5 +41,5 @@ interface LoaderInterface
      *
      * @api
      */
-    function isFresh(TemplateReferenceInterface $template, $time);
+    function isFresh(Symfony_Component_Templating_TemplateReferenceInterface $template, $time);
 }

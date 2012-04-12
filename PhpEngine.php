@@ -9,13 +9,13 @@
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Templating;
+//namespace Symfony\Component\Templating;
 
-use Symfony\Component\Templating\Storage\Storage;
-use Symfony\Component\Templating\Storage\FileStorage;
-use Symfony\Component\Templating\Storage\StringStorage;
-use Symfony\Component\Templating\Helper\HelperInterface;
-use Symfony\Component\Templating\Loader\LoaderInterface;
+//use Symfony\Component\Templating\Storage\Storage;
+//use Symfony\Component\Templating\Storage\FileStorage;
+//use Symfony\Component\Templating\Storage\StringStorage;
+//use Symfony\Component\Templating\Helper\HelperInterface;
+//use Symfony\Component\Templating\Loader\LoaderInterface;
 
 if (!defined('ENT_SUBSTITUTE')) {
     define('ENT_SUBSTITUTE', 8);
@@ -28,7 +28,7 @@ if (!defined('ENT_SUBSTITUTE')) {
  *
  * @api
  */
-class PhpEngine implements EngineInterface, \ArrayAccess
+class Symfony_Component_Templating_PhpEngine implements Symfony_Component_Templating_EngineInterface, ArrayAccess
 {
     protected $loader;
     protected $current;
@@ -48,7 +48,7 @@ class PhpEngine implements EngineInterface, \ArrayAccess
      * @param LoaderInterface             $loader  A loader instance
      * @param array                       $helpers An array of helper instances
      */
-    public function __construct(TemplateNameParserInterface $parser, LoaderInterface $loader, array $helpers = array())
+    public function __construct(Symfony_Component_Templating_TemplateNameParserInterface $parser, Symfony_Component_Templating_Loader_LoaderInterface $loader, array $helpers = array())
     {
         $this->parser  = $parser;
         $this->loader  = $loader;
@@ -74,8 +74,8 @@ class PhpEngine implements EngineInterface, \ArrayAccess
      *
      * @return string The evaluated template as a string
      *
-     * @throws \InvalidArgumentException if the template does not exist
-     * @throws \RuntimeException         if the template cannot be rendered
+     * @throws InvalidArgumentException if the template does not exist
+     * @throws RuntimeException         if the template cannot be rendered
      *
      * @api
      */
@@ -90,7 +90,7 @@ class PhpEngine implements EngineInterface, \ArrayAccess
         $parameters = array_replace($this->getGlobals(), $parameters);
         // render
         if (false === $content = $this->evaluate($storage, $parameters)) {
-            throw new \RuntimeException(sprintf('The template "%s" cannot be rendered.', $this->parser->parse($name)));
+            throw new RuntimeException(sprintf('The template "%s" cannot be rendered.', $this->parser->parse($name)));
         }
 
         // decorator
@@ -120,7 +120,7 @@ class PhpEngine implements EngineInterface, \ArrayAccess
     {
         try {
             $this->load($name);
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             return false;
         }
 
@@ -151,22 +151,22 @@ class PhpEngine implements EngineInterface, \ArrayAccess
      *
      * @return string|false The evaluated template, or false if the engine is unable to render the template
      */
-    protected function evaluate(Storage $template, array $parameters = array())
+    protected function evaluate(Symfony_Component_Templating_Storage_Storage $template, array $parameters = array())
     {
         $__template__ = $template;
 
         if (isset($parameters['__template__'])) {
-            throw new \InvalidArgumentException('Invalid parameter (__template__)');
+            throw new InvalidArgumentException('Invalid parameter (__template__)');
         }
 
-        if ($__template__ instanceof FileStorage) {
+        if ($__template__ instanceof Symfony_Component_Templating_Storage_FileStorage) {
             extract($parameters, EXTR_SKIP);
             $view = $this;
             ob_start();
             require $__template__;
 
             return ob_get_clean();
-        } elseif ($__template__ instanceof StringStorage) {
+        } elseif ($__template__ instanceof Symfony_Component_Templating_Storage_StringStorage) {
             extract($parameters, EXTR_SKIP);
             $view = $this;
             ob_start();
@@ -185,7 +185,7 @@ class PhpEngine implements EngineInterface, \ArrayAccess
      *
      * @return mixed The helper value
      *
-     * @throws \InvalidArgumentException if the helper is not defined
+     * @throws InvalidArgumentException if the helper is not defined
      *
      * @api
      */
@@ -230,7 +230,7 @@ class PhpEngine implements EngineInterface, \ArrayAccess
      */
     public function offsetUnset($name)
     {
-        throw new \LogicException(sprintf('You can\'t unset a helper (%s).', $name));
+        throw new LogicException(sprintf('You can\'t unset a helper (%s).', $name));
     }
 
     /**
@@ -266,7 +266,7 @@ class PhpEngine implements EngineInterface, \ArrayAccess
      *
      * @api
      */
-    public function set(HelperInterface $helper, $alias = null)
+    public function set(Symfony_Component_Templating_Helper_HelperInterface $helper, $alias = null)
     {
         $this->helpers[$helper->getName()] = $helper;
         if (null !== $alias) {
@@ -297,14 +297,14 @@ class PhpEngine implements EngineInterface, \ArrayAccess
      *
      * @return HelperInterface The helper instance
      *
-     * @throws \InvalidArgumentException if the helper is not defined
+     * @throws InvalidArgumentException if the helper is not defined
      *
      * @api
      */
     public function get($name)
     {
         if (!isset($this->helpers[$name])) {
-            throw new \InvalidArgumentException(sprintf('The helper "%s" is not defined.', $name));
+            throw new InvalidArgumentException(sprintf('The helper "%s" is not defined.', $name));
         }
 
         return $this->helpers[$name];
@@ -386,7 +386,7 @@ class PhpEngine implements EngineInterface, \ArrayAccess
     public function getEscaper($context)
     {
         if (!isset($this->escapers[$context])) {
-            throw new \InvalidArgumentException(sprintf('No registered escaper for context "%s".', $context));
+            throw new InvalidArgumentException(sprintf('No registered escaper for context "%s".', $context));
         }
 
         return $this->escapers[$context];
@@ -482,7 +482,7 @@ class PhpEngine implements EngineInterface, \ArrayAccess
                     };
 
                     if (null === $value = preg_replace_callback('#[^\p{L}\p{N} ]#u', $callback, $value)) {
-                        throw new \InvalidArgumentException('The string to escape is not a valid UTF-8 string.');
+                        throw new InvalidArgumentException('The string to escape is not a valid UTF-8 string.');
                     }
 
                     if ('UTF-8' != $that->getCharset()) {
@@ -503,7 +503,7 @@ class PhpEngine implements EngineInterface, \ArrayAccess
      *
      * @return string The string with the new encoding
      *
-     * @throws \RuntimeException if no suitable encoding function is found (iconv or mbstring)
+     * @throws RuntimeException if no suitable encoding function is found (iconv or mbstring)
      */
     public function convertEncoding($string, $to, $from)
     {
@@ -513,7 +513,7 @@ class PhpEngine implements EngineInterface, \ArrayAccess
             return mb_convert_encoding($string, $to, $from);
         }
 
-        throw new \RuntimeException('No suitable convert encoding function (use UTF-8 as your encoding or install the iconv or mbstring extension).');
+        throw new RuntimeException('No suitable convert encoding function (use UTF-8 as your encoding or install the iconv or mbstring extension).');
     }
 
     /**
@@ -533,7 +533,7 @@ class PhpEngine implements EngineInterface, \ArrayAccess
      *
      * @return Storage A Storage instance
      *
-     * @throws \InvalidArgumentException if the template cannot be found
+     * @throws InvalidArgumentException if the template cannot be found
      */
     protected function load($name)
     {
@@ -547,7 +547,7 @@ class PhpEngine implements EngineInterface, \ArrayAccess
         $storage = $this->loader->load($template);
 
         if (false === $storage) {
-            throw new \InvalidArgumentException(sprintf('The template "%s" does not exist.', $template));
+            throw new InvalidArgumentException(sprintf('The template "%s" does not exist.', $template));
         }
 
         return $this->cache[$key] = $storage;

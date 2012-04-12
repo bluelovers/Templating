@@ -9,16 +9,16 @@
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Templating\Loader;
+//namespace Symfony\Component\Templating\Loader;
 
-use Symfony\Component\Templating\DebuggerInterface;
+//use Symfony\Component\Templating\DebuggerInterface;
 
 /**
  * Loader is the base class for all template loader classes.
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
-abstract class Loader implements LoaderInterface
+abstract class Symfony_Component_Templating_Loader_Loader implements Symfony_Component_Templating_Loader_LoaderInterface
 {
     protected $debugger;
 
@@ -27,7 +27,7 @@ abstract class Loader implements LoaderInterface
      *
      * @param DebuggerInterface $debugger A debugger instance
      */
-    public function setDebugger(DebuggerInterface $debugger)
+    public function setDebugger(Symfony_Component_Templating_DebuggerInterface $debugger)
     {
         $this->debugger = $debugger;
     }

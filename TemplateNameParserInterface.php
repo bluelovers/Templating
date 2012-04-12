@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Templating;
+//namespace Symfony\Component\Templating;
 
 /**
  * TemplateNameParserInterface converts template names to TemplateReferenceInterface
@@ -19,7 +19,7 @@ namespace Symfony\Component\Templating;
  *
  * @api
  */
-interface TemplateNameParserInterface
+interface Symfony_Component_Templating_TemplateNameParserInterface
 {
     /**
      * Convert a template name to a TemplateReferenceInterface instance.

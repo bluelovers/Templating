@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Templating\Helper;
+//namespace Symfony\Component\Templating\Helper;
 
-use Symfony\Component\Templating\Asset\PackageInterface;
+//use Symfony\Component\Templating\Asset\PackageInterface;
 
 /**
  * CoreAssetsHelper helps manage asset URLs.
@@ -25,7 +25,7 @@ use Symfony\Component\Templating\Asset\PackageInterface;
  * @author Fabien Potencier <fabien@symfony.com>
  * @author Kris Wallsmith <kris@symfony.com>
  */
-class CoreAssetsHelper extends Helper implements PackageInterface
+class Symfony_Component_Templating_Helper_CoreAssetsHelper extends Symfony_Component_Templating_Helper_Helper implements Symfony_Component_Templating_Asset_PackageInterface
 {
     protected $defaultPackage;
     protected $namedPackages;
@@ -36,7 +36,7 @@ class CoreAssetsHelper extends Helper implements PackageInterface
      * @param PackageInterface $defaultPackage The default package
      * @param array            $namedPackages  Additional packages indexed by name
      */
-    public function __construct(PackageInterface $defaultPackage, array $namedPackages = array())
+    public function __construct(Symfony_Component_Templating_Asset_PackageInterface $defaultPackage, array $namedPackages = array())
     {
         $this->defaultPackage = $defaultPackage;
         $this->namedPackages = array();
@@ -51,7 +51,7 @@ class CoreAssetsHelper extends Helper implements PackageInterface
      *
      * @param PackageInterface $defaultPackage The default package
      */
-    public function setDefaultPackage(PackageInterface $defaultPackage)
+    public function setDefaultPackage(Symfony_Component_Templating_Asset_PackageInterface $defaultPackage)
     {
         $this->defaultPackage = $defaultPackage;
     }
@@ -62,7 +62,7 @@ class CoreAssetsHelper extends Helper implements PackageInterface
      * @param string           $name    The package name
      * @param PackageInterface $package The package
      */
-    public function addPackage($name, PackageInterface $package)
+    public function addPackage($name, Symfony_Component_Templating_Asset_PackageInterface $package)
     {
         $this->namedPackages[$name] = $package;
     }
@@ -83,7 +83,7 @@ class CoreAssetsHelper extends Helper implements PackageInterface
         }
 
         if (!isset($this->namedPackages[$name])) {
-            throw new \InvalidArgumentException(sprintf('There is no "%s" asset package.', $name));
+            throw new InvalidArgumentException(sprintf('There is no "%s" asset package.', $name));
         }
 
         return $this->namedPackages[$name];

@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Templating;
+//namespace Symfony\Component\Templating;
 
 /**
  * EngineInterface is the interface each engine must implement.
@@ -30,7 +30,7 @@ namespace Symfony\Component\Templating;
  *
  * @api
  */
-interface EngineInterface
+interface Symfony_Component_Templating_EngineInterface
 {
     /**
      * Renders a template.
@@ -40,7 +40,7 @@ interface EngineInterface
      *
      * @return string The evaluated template as a string
      *
-     * @throws \RuntimeException if the template cannot be rendered
+     * @throws RuntimeException if the template cannot be rendered
      *
      * @api
      */

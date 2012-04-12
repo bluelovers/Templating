@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Templating\Storage;
+//namespace Symfony\Component\Templating\Storage;
 
 /**
  * Storage is the base class for all storage classes.
@@ -18,7 +18,7 @@ namespace Symfony\Component\Templating\Storage;
  *
  * @api
  */
-abstract class Storage
+abstract class Symfony_Component_Templating_Storage_Storage
 {
     protected $template;
 

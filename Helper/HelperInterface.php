@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Templating\Helper;
+//namespace Symfony\Component\Templating\Helper;
 
 /**
  * HelperInterface is the interface all helpers must implement.
@@ -18,7 +18,7 @@ namespace Symfony\Component\Templating\Helper;
  *
  * @api
  */
-interface HelperInterface
+interface Symfony_Component_Templating_Helper_HelperInterface
 {
     /**
      * Returns the canonical name of this helper.

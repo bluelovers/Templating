@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Templating\Helper;
+//namespace Symfony\Component\Templating\Helper;
 
-use Symfony\Component\Templating\Asset\PathPackage;
-use Symfony\Component\Templating\Asset\UrlPackage;
+//use Symfony\Component\Templating\Asset\PathPackage;
+//use Symfony\Component\Templating\Asset\UrlPackage;
 
 /**
  * AssetsHelper helps manage asset URLs.
@@ -26,7 +26,7 @@ use Symfony\Component\Templating\Asset\UrlPackage;
  * @author Fabien Potencier <fabien@symfony.com>
  * @author Kris Wallsmith <kris@symfony.com>
  */
-class AssetsHelper extends CoreAssetsHelper
+class Symfony_Component_Templating_Helper_AssetsHelper extends Symfony_Component_Templating_Helper_CoreAssetsHelper
 {
     /**
      * Constructor.
@@ -40,9 +40,9 @@ class AssetsHelper extends CoreAssetsHelper
     public function __construct($basePath = null, $baseUrls = array(), $version = null, $format = null, $namedPackages = array())
     {
         if ($baseUrls) {
-            $defaultPackage = new UrlPackage($baseUrls, $version, $format);
+            $defaultPackage = new Symfony_Component_Templating_Asset_UrlPackage($baseUrls, $version, $format);
         } else {
-            $defaultPackage = new PathPackage($basePath, $version, $format);
+            $defaultPackage = new Symfony_Component_Templating_Asset_PathPackage($basePath, $version, $format);
         }
 
         parent::__construct($defaultPackage, $namedPackages);

@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Templating\Storage;
+//namespace Symfony\Component\Templating\Storage;
 
 /**
  * StringStorage represents a template stored in a string.
@@ -18,7 +18,7 @@ namespace Symfony\Component\Templating\Storage;
  *
  * @api
  */
-class StringStorage extends Storage
+class Symfony_Component_Templating_Storage_StringStorage extends Symfony_Component_Templating_Storage_Storage
 {
     /**
      * Returns the content of the template.

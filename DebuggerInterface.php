@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Templating;
+//namespace Symfony\Component\Templating;
 
 /**
  * DebuggerInterface is the interface you need to implement
@@ -17,7 +17,7 @@ namespace Symfony\Component\Templating;
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
-interface DebuggerInterface
+interface Symfony_Component_Templating_DebuggerInterface
 {
     /**
      * Logs a message.

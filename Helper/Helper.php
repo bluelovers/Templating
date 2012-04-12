@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Templating\Helper;
+//namespace Symfony\Component\Templating\Helper;
 
 /**
  * Helper is the base class for all helper classes.
@@ -21,7 +21,7 @@ namespace Symfony\Component\Templating\Helper;
  *
  * @api
  */
-abstract class Helper implements HelperInterface
+abstract class Symfony_Component_Templating_Helper_Helper implements Symfony_Component_Templating_Helper_HelperInterface
 {
     protected $charset = 'UTF-8';
 

@@ -9,17 +9,17 @@
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Templating\Loader;
+//namespace Symfony\Component\Templating\Loader;
 
-use Symfony\Component\Templating\Storage;
-use Symfony\Component\Templating\TemplateReferenceInterface;
+//use Symfony\Component\Templating\Storage;
+//use Symfony\Component\Templating\TemplateReferenceInterface;
 
 /**
  * ChainLoader is a loader that calls other loaders to load templates.
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
-class ChainLoader extends Loader
+class Symfony_Component_Templating_Loader_ChainLoader extends Symfony_Component_Templating_Loader_Loader
 {
     protected $loaders;
 
@@ -41,7 +41,7 @@ class ChainLoader extends Loader
      *
      * @param Loader $loader A Loader instance
      */
-    public function addLoader(Loader $loader)
+    public function addLoader(Symfony_Component_Templating_Loader_Loader $loader)
     {
         $this->loaders[] = $loader;
     }
@@ -53,7 +53,7 @@ class ChainLoader extends Loader
      *
      * @return Storage|Boolean false if the template cannot be loaded, a Storage instance otherwise
      */
-    public function load(TemplateReferenceInterface $template)
+    public function load(Symfony_Component_Templating_TemplateReferenceInterface $template)
     {
         foreach ($this->loaders as $loader) {
             if (false !== $storage = $loader->load($template)) {
@@ -72,7 +72,7 @@ class ChainLoader extends Loader
      *
      * @return Boolean
      */
-    public function isFresh(TemplateReferenceInterface $template, $time)
+    public function isFresh(Symfony_Component_Templating_TemplateReferenceInterface $template, $time)
     {
         foreach ($this->loaders as $loader) {
             return $loader->isFresh($template);

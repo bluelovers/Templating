@@ -9,14 +9,14 @@
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Templating;
+//namespace Symfony\Component\Templating;
 
 /**
  * StreamingEngineInterface provides a method that knows how to stream a template.
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
-interface StreamingEngineInterface
+interface Symfony_Component_Templating_StreamingEngineInterface
 {
     /**
      * Streams a template.
@@ -26,7 +26,7 @@ interface StreamingEngineInterface
      * @param mixed $name       A template name or a TemplateReferenceInterface instance
      * @param array $parameters An array of parameters to pass to the template
      *
-     * @throws \RuntimeException if the template cannot be rendered
+     * @throws RuntimeException if the template cannot be rendered
      */
     function stream($name, array $parameters = array());
 }

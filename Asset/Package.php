@@ -9,14 +9,14 @@
  * file that was distributed with this source code.
  */
 
-namespace Symfony\Component\Templating\Asset;
+//namespace Symfony\Component\Templating\Asset;
 
 /**
  * The basic package will add a version to asset URLs.
  *
  * @author Kris Wallsmith <kris@symfony.com>
  */
-class Package implements PackageInterface
+class Symfony_Component_Templating_Asset_Package implements Symfony_Component_Templating_Asset_PackageInterface
 {
     private $version;
     private $format;
