@@ -1,7 +1,5 @@
 <?php
 
-require_once dirname(__FILE__) . '/../../../../../../src/Symfony/Component/Templating/Loader/FilesystemLoader.php';
-
 require_once __DIR__.'/../Fixtures/ProjectTemplateDebugger.php';
 
 /**

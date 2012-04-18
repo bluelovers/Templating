@@ -48,7 +48,7 @@ class Symfony_Component_Templating_Test_Autoloader
 		{
 			return false;
 		}
-		elseif (!$_class = substr($class, 22))
+		elseif (!$_class = substr($class, strlen('Symfony_Component_Templating_')))
 		{
 			return false;
 		}
