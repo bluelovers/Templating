@@ -1,10 +1,8 @@
 <?php
 
-namespace Symfony\Component\Templating\Tests\Fixtures;
+//use Symfony\Component\Templating\DebuggerInterface;
 
-use Symfony\Component\Templating\DebuggerInterface;
-
-class ProjectTemplateDebugger implements DebuggerInterface
+class ProjectTemplateDebugger implements Symfony_Component_Templating_DebuggerInterface
 {
     protected $messages = array();
 

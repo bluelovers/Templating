@@ -1,10 +1,8 @@
 <?php
 
-namespace Symfony\Component\Templating\Tests\Fixtures;
+//use Symfony\Component\Templating\Helper\Helper;
 
-use Symfony\Component\Templating\Helper\Helper;
-
-class SimpleHelper extends Helper
+class SimpleHelper extends Symfony_Component_Templating_Helper_Helper
 {
     protected $value = '';
 
